@@ -1,0 +1,10 @@
+# 配置MySQL replication
+server_id = 223344
+# log_bin的值是binlog文件序列的基本名称
+log_bin = mysql-bin
+# 选择ROW模式，读行
+binlog_format = ROW
+# 必须是FULL
+binlog_row_image = FULL
+# 依据实际情况而定
+expire_logs_days = 10

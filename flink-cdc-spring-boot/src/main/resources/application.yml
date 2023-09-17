@@ -1,0 +1,39 @@
+server:
+  port: 7777
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: flink-cdc
+management:
+  server:
+    port: 7888
+  endpoint:
+    health:
+      enabled: true
+    beans:
+      enabled: true
+      cache:
+        time-to-live: 100s
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /
+      path-mapping:
+        health: health
+      exposure:
+        include: "*"
+        exclude: beans
+logging:
+  file:
+    path: /Users/zoubaolu/code/workspace/idea/cdc-project/flink-cdc-spring-boot/logs
+flink-cdc:
+  enable: true
+  datasource:
+    host: 127.0.0.1
+    port: 3306
+    username: root
+    password: 123456
+    database-list: debezium
+    table-list: debezium.user_info

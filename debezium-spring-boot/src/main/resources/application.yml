@@ -1,0 +1,36 @@
+server:
+  port: 5555
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: debezium
+management:
+  server:
+    port: 5666
+  endpoint:
+    health:
+      enabled: true
+    beans:
+      enabled: true
+      cache:
+        time-to-live: 100s
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /
+      path-mapping:
+        health: health
+      exposure:
+        include: "*"
+        exclude: beans
+logging:
+  file:
+    path: /Users/zoubaolu/code/workspace/idea/cdc-project/debezium-spring-boot/logs
+#Debezium数据同步配置
+debezium:
+  # 是否开启
+  enable: true
+  # 是否启动时清除偏移量文件
+  offset-storage-file-clean: true
